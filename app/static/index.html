@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College AI Assistant</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <h2>✦ CampusMate</h2>
+        <p>Your College AI Assistant</p>
+
+        <button onclick="showPage('chat')">AI Chat</button>
+        <button onclick="showPage('attendance')">Attendance</button>
+        <button onclick="showPage('timetable')">Timetable</button>
+
+        <p class="side-note">Your personal study companion</p>
+    </aside>
+
+    <main>
+        <header>
+            <span>STUDENT WORKSPACE</span>
+            <span id="status">Connecting...</span>
+        </header>
+
+        <section id="chatPage" class="page">
+            <div class="welcome">
+                <h1>What are we learning <span>today?</span></h1>
+                <p>Ask questions, understand concepts and learn smarter.</p>
+            </div>
+
+            <div id="messages" class="messages"></div>
+
+            <div class="upload">
+                <input type="file" id="fileInput"
+                       accept=".pdf,.docx,.xlsx,.txt">
+                <button onclick="uploadFile()">Upload Notes</button>
+                <span id="fileStatus"></span>
+            </div>
+
+            <form id="chatForm">
+                <textarea id="message"
+                          placeholder="Ask anything about your studies..."
+                          required></textarea>
+                <button type="submit">Send ↑</button>
+            </form>
+        </section>
+
+        <section id="attendancePage" class="page hidden">
+            <h1>Attendance Calculator</h1>
+
+            <form id="attendanceForm" class="card">
+                <label>Classes attended</label>
+                <input id="attended" type="number" min="0"
+                       value="36" required>
+
+                <label>Total classes</label>
+                <input id="total" type="number" min="1"
+                       value="40" required>
+
+                <label>Target percentage</label>
+                <input id="target" type="number" min="1" max="100"
+                       value="75" required>
+
+                <button type="submit">Calculate</button>
+                <h3 id="attendanceResult"></h3>
+            </form>
+        </section>
+
+        <section id="timetablePage" class="page hidden">
+            <h1>Weekly Timetable</h1>
+            <p>Example timetable. Replace it with your college schedule.</p>
+            <div id="timetable" class="timetable"></div>
+        </section>
+    </main>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
